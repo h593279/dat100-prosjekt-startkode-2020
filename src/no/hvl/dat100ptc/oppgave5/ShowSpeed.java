@@ -23,14 +23,14 @@ public class ShowSpeed extends EasyGraphics {
 		String filename = JOptionPane.showInputDialog("GPS data filnavn: ");
 		gpscomputer = new GPSComputer(filename);
 
-		gpspoints = gpscomputer.getGPSPoints();
+		gpspoints = gpscomputer.getGPSPoints(); 
 		
 	}
 	
 	// read in the files and draw into using EasyGraphics
 	public static void main(String[] args) {
 		launch(args);
-	}
+	} 
 
 	public void run() {
 
@@ -50,7 +50,21 @@ public class ShowSpeed extends EasyGraphics {
 
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		
+		setColor(0, 0, 255); 
+		for( int i=0; i < N; i++ ) {
+			
+			drawLine(x , ybase, x, ybase - (int)speeds[i]); 	
+			x += 2; 
+		}
+		
+		
+		
+		setColor(0, 255, 0);
+		drawLine(MARGIN , ybase - (int)gpscomputer.averageSpeed(), x , ybase -(int)gpscomputer.averageSpeed()); 	
+		
+		
+
 	
 		// TODO - SLUTT
 	}

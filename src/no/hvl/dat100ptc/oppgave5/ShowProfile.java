@@ -16,8 +16,7 @@ public class ShowProfile extends EasyGraphics {
 	
 	private static int MAXBARHEIGHT = 500; // assume no height above 500 meters
 	
-	private GPSPoint[] gpspoints;
-
+	private GPSPoint[] gpspoints; 
 	public ShowProfile() {
 
 		String filename = JOptionPane.showInputDialog("GPS data filnavn: ");
@@ -26,6 +25,8 @@ public class ShowProfile extends EasyGraphics {
 		gpspoints = gpscomputer.getGPSPoints();
 		
 	}
+	
+
 
 	public static void main(String[] args) {
 		launch(args);
@@ -42,14 +43,23 @@ public class ShowProfile extends EasyGraphics {
 	}
 
 	public void showHeightProfile(int ybase) {
+		
 
 		// ybase indicates the position on the y-axis where the columns should start
 	
-		int x = MARGIN,y;
+		int x  = MARGIN,y;
+		 
 
 		// TODO - START
 
-		throw new UnsupportedOperationException(TODO.method());
+		
+		for( int i=0; i < gpspoints.length; i++ ) {
+		
+			drawLine(x , ybase, x , ybase - (int)gpspoints[i].getElevation()); 	
+			x += 2; 
+		}
+		
+		
 	
 		// TODO - SLUTT
 	}

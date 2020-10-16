@@ -16,12 +16,18 @@ public class GPSDataConverter {
 		
 		int secs;
 		int hr, min, sec;
+		 
+		hr = Integer.parseInt(timestr.substring(11, 13)); 
+		min = Integer.parseInt(timestr.substring(14, 16)); 
+		sec = Integer.parseInt(timestr.substring(17, 19)); 
+		secs = hr * 60 * 60 + min * 60 + sec; 
+		
+		return secs; 
 		
 		// TODO
 		// OPPGAVE - START
 		
-		throw new UnsupportedOperationException(TODO.method());
-
+ 
 		// OPPGAVE - SLUTT
 		
 	}
@@ -29,13 +35,16 @@ public class GPSDataConverter {
 	public static GPSPoint convert(String timeStr, String latitudeStr, String longitudeStr, String elevationStr) {
 
 		GPSPoint gpspoint;
-
-		// TODO - START ;
 		
-		throw new UnsupportedOperationException(TODO.method());
-
-		// OPPGAVE - SLUTT ;
-	    
+		int Time = toSeconds(timeStr); 
+		double Latitude = Double.parseDouble(latitudeStr); 
+		double Longitude = Double.parseDouble(longitudeStr); 
+		double Elevation = Double.parseDouble(elevationStr); 
+		gpspoint = new GPSPoint (Time, Latitude, Longitude, Elevation); 
+		
+		return gpspoint; 
+		
+		
 	}
 	
 }
